@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="container mt-5 mb-3">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center" style="background-color: #347474; color: white;">
+                        <h4 class="text-center mb-0">Add Medicine User</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            
+                            <div class="form-group">
+                                {{ med_user_form.username|add_class:"form-control"|attr:"placeholder:Enter your username" }}
+                                {% if med_user_form.username.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.username.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {{ med_user_form.fname|add_class:"form-control"|attr:"placeholder:Enter your first name" }}
+                                {% if med_user_form.fname.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.fname.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {{ med_user_form.lname|add_class:"form-control"|attr:"placeholder:Enter your last name" }}
+                                {% if med_user_form.lname.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.lname.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {{ med_user_form.email1|add_class:"form-control"|attr:"placeholder:Enter your email address" }}
+                                {% if med_user_form.email1.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.email1.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {{ med_user_form.phoneno1|add_class:"form-control"|attr:"placeholder:Enter your phone number" }}
+                                {% if med_user_form.phoneno1.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.phoneno1.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                           
+                            <div class="form-group">
+                                {{ med_user_form.address1|add_class:"form-control"|attr:"placeholder:Enter your address" }}
+                                {% if med_user_form.address1.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.address1.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="form-group">
+                                {{ med_user_form.password1|add_class:"form-control"|attr:"placeholder:Enter your password" }}
+                                {% if med_user_form.password1.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.password1.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                {{ med_user_form.password2|add_class:"form-control"|attr:"placeholder:Confirm your password" }}
+                                {% if med_user_form.password2.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in med_user_form.password2.errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn btn-block " style="background-color:orange; color: white;">Add Medicine User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

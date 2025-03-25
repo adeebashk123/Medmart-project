@@ -1,0 +1,53 @@
+from django.urls import path
+from django.contrib.auth.views import LoginView,LogoutView
+from .views import (
+    homepage,
+    contact_submit_page,  
+    contactpage,
+    MedicineDetailView,
+    MedUserList,
+    MedicineCreateView,
+    CustomLoginView,
+    UserCreateView,
+    MedicineListView,
+    MedicineUpdateView,
+    MedicineDeleteView,
+    ProductCreateView,
+    ProductListView,
+    ProductDeleteView,
+    ProductDetailView,
+    ProductUpdateView,privacypolicypage,faqpage,
+    AddToCartView,CartView,RemoveFromCartView,CreateOrderView,OrderSummaryView,ProceedToPaymentView,PaymentSuccessView,search_results
+)
+
+
+urlpatterns = [
+    path('home/', homepage, name='home'),
+    path('contact/', contactpage, name='contact'),
+    path('contact_submit/', contact_submit_page, name="contact_submit"),
+    path('privacy_policy/', privacypolicypage, name='privacy_policy'),
+    path('faq/', faqpage, name='faq'),
+    path('search/', search_results, name='search_results'), 
+    path('create_user/', UserCreateView, name="create_user"),
+    path('login/', CustomLoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'), name="logout"),
+    path('create_medicine/',MedicineCreateView.as_view(),name="add_medicine"),
+    path('meduser_list/',MedUserList.as_view(),name="meduser_list"),
+    path('med_detail_view/<int:pk>',MedicineDetailView.as_view(),name="med_detail_view"),
+    path('medicine_list/', MedicineListView.as_view(), name="medicine_list"),
+    path('med_update/<int:pk>', MedicineUpdateView.as_view(), name="med_update"),
+    path('med_delete/<int:pk>', MedicineDeleteView.as_view(),name="med_delete"),
+    path('create_product/',ProductCreateView.as_view(),name="create_product"),
+    path('product_list/',ProductListView.as_view(),name="product_list"),
+    path('product_detail/<int:pk>/',ProductDetailView.as_view(),name="product_detail_view"),
+    path('product_update/<int:pk>/', ProductUpdateView.as_view(), name="product_update"),
+    path('product_delete/<int:pk>/', ProductDeleteView.as_view(),name="product_delete"),
+    path('add-to-cart/', AddToCartView.as_view(), name='add_to_cart'),
+    path('cart/', CartView.as_view(), name='cart'),
+    path('remove_from_cart/<int:cart_id>/', RemoveFromCartView.as_view(), name='remove_from_cart'),
+    path('view_cart/', CartView.as_view(), name="view_cart"),
+    path('create_order/', CreateOrderView.as_view(), name="create_order"),
+    path('order_summary/<int:order_id>/', OrderSummaryView.as_view(), name='order_summary'),
+    path('proceed_to_payment/<int:order_id>/', ProceedToPaymentView.as_view(), name='proceed_to_payment'),
+    path('order/<int:order>/payment_success/', PaymentSuccessView.as_view(), name='payment_success'),
+]

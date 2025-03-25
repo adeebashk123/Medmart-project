@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Your Cart</h2>
+
+    {% if cart_items %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>
+                            {% if item.medicine %}
+                                {{ item.medicine.name }}
+                            {% elif item.product %}
+                                {{ item.product.product_name }}
+                            {% else %}
+                                Unknown Item
+                            {% endif %}
+                        </td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+                            {% if item.medicine %}
+                                ₹{{ item.medicine.price }}
+                            {% elif item.product %}
+                                ₹{{ item.product.price }}
+                            {% else %}
+                                ₹0
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form action="{% url 'remove_from_cart' item.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="{% url 'create_order' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Proceed to Checkout</button>
+        </form>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+
+{% endblock %}

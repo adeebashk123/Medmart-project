@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Proceed to Payment</h2>
+    <p>Order ID: {{ order.id }}</p>
+    <p>Total Amount: ₹{{ order.total_amount }}</p>
+    
+    <form action="{% url 'payment_success' order.id %}" method="post">
+        {% csrf_token %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js"
+        data-key="{{ razorpay_api_key }}"
+        data-amount="{{ order_total|multiply:100|floatformat:0 }}"
+        data-currency="INR"
+        data-order_id="{{ razorpay_order_id }}"
+        data-name="MedMart"
+        data-description="Order Payment"
+        data-theme.color="grey"></script>
+        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("Razorpay script loaded successfully.");
+    });
+</script>
+
+{% endblock %}

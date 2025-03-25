@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center my-4">Medicine & Health Product Order Summary</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.orderitem_set.all %}
+            <tr>
+                <td>
+                    {% if item.medicine %}
+                        {{ item.medicine.name }}
+                    {% elif item.product %}
+                        {{ item.product.name }}
+                    {% else %}
+                        Unknown Item
+                    {% endif %}
+                </td>                
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price }}</td>   
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <h3>Total Cost: <strong>₹{{ order.total_amount }}</strong></h3>
+        
+        {% if order.payment_status == "PENDING" %}
+            <a href="{% url 'proceed_to_payment' order.id %}" class="btn btn-success btn-lg mt-3">
+                Proceed to Payment
+            </a>
+        {% else %}
+            <p class="text-success mt-3">✅ Order already paid.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

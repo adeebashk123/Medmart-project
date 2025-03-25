@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center" style="color:#347474;">Frequently Asked Questions</h2>
+    <p class="lead text-center text-muted">Here are some common questions we get. If you have a question that isn't covered below, feel free to contact us.</p>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                            What are the store hours?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq1" class="collapse">
+                    <div class="card-body">
+                        Our store is open from 9:00 AM to 9:00 PM, Monday to Saturday. We are closed on Sundays.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+           
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                            Do you deliver medicines?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq2" class="collapse">
+                    <div class="card-body">
+                        Yes, we offer home delivery for orders placed through our website. Delivery charges apply depending on your location.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+         
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                            Can I return a medicine I purchased?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq3" class="collapse">
+                    <div class="card-body">
+                        Due to health and safety regulations, we do not accept returns on medicines. If you have received the wrong product or if there is an issue with the quality, please contact our support team for assistance.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                            How do I track my order?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq4" class="collapse">
+                    <div class="card-body">
+                        After placing your order, you will receive an email with a tracking number. You can use this number to track your order on our delivery partner's website.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                            Do you have a loyalty program?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq5" class="collapse">
+                    <div class="card-body">
+                        Yes! We offer a loyalty program for repeat customers. You can earn points with every purchase and redeem them for discounts on future orders.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+           
+            <div class="card" style="background-color: #FF8C00; border: none;">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                            Are the medicines you sell genuine?
+                        </button>
+                    </h5>
+                </div>
+                <div id="faq6" class="collapse">
+                    <div class="card-body">
+                        Yes, we only sell medicines that are sourced from authorized and reputable suppliers. All products are genuine and approved by the relevant regulatory bodies.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+
+{% endblock %}

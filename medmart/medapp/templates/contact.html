@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center" style="color: #347474;">Contact Us</h2> 
+        <p class="lead text-center text-muted">
+            We are here to assist you with your pharmaceutical needs. If you have any inquiries or require assistance, don't hesitate to reach out. Our team is ready to help.
+        </p>
+
+        <div class="row justify-content-center">
+            <!-- Contact Form -->
+            <div class="col-md-6 shadow-lg p-4 mb-5 bg-white rounded">
+                <h4 class="text-center text-black">Send Us a Message</h4>
+                <form action="{% url 'contact_submit' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name" class="text-black">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-black">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="text-black">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-block" style="background-color:orange; color: white;">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6 text-center">
+                <h4 class="text-black">Our Information</h4>
+                <ul class="list-unstyled">
+                    <li><strong>Address:</strong> 456 Pharmacy Street, Medville, Country</li>
+                    <li><strong>Email:</strong> <a href="mailto:support@pharmacy.com">support@pharmacy.com</a></li>
+                    <li><strong>Phone:</strong> (987) 654-3210</li>
+                    <li><strong>Business Hours:</strong> Monday - Friday: 8 AM - 7 PM</li>
+                    <li><strong>Emergency:</strong> 24/7 Pharmacy Hotline: (987) 654-3211</li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Company Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody> 
+    {% for medicine in medicines %}
+        <tr> 
+            <td><a href="{% url 'med_detail_view' medicine.id %}"> {{ medicine.name }} </a></td>
+            <td>{{ medicine.price }}</td> 
+            <td>{{ medicine.company_name }}</td> 
+            <td>{{ medicine.description }}</td> 
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
